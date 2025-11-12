@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | CareerBoost Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .admin-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Portal - CV Phase Lifting</h1>
+        
+        <div class="success-message" id="successMessage">
+            Submission received successfully! The CV will be processed within 2 business days.
+        </div>
+        
+        <form id="adminForm">
+            <div class="form-group">
+                <label for="adminFullName">Full Name</label>
+                <input type="text" id="adminFullName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="paymentProof">Proof of Payment (Attachment)</label>
+                <input type="file" id="paymentProof" class="form-control" required accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+            
+            <div class="form-group">
+                <label for="cvResume">CV/Resume (Attachment)</label>
+                <input type="file" id="cvResume" class="form-control" required accept=".pdf,.doc,.docx">
+            </div>
+            
+            <div class="form-group">
+                <label for="specialInstructions">Special Instructions (Optional)</label>
+                <textarea id="specialInstructions" class="form-control"></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Submit for Phase Lifting</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would handle file uploads and form data
+            // For demonstration, we'll just show a success message
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
